@@ -1,22 +1,24 @@
 package Package;
 
-import org.junit.Assert;
+
+import assertPackage.myAssert;
+
 
 public class Testing {
     @TestAnnotation
-    public void testSum(){
-        int actual = Main.sumTwoNumbers(4,1);
-     Assert.assertEquals(10,actual );
+    public void testSum() throws Exception {
+        int actual =Main.sumTwoNumbers(4,1);
+        myAssert.assertNumbers(actual, 10);
     }
 
     @TestAnnotation
-    public void testMlu(){
+    public void testMlu() throws Exception {
         int actual = Main.mulThreeNumberes(1,2,3);
-        Assert.assertEquals(6,actual);
-    }
+        myAssert.assertNumbers(actual, 6);
+}
     @TestNameAnnotation
-    public void testDetails(){
+    public void testDetails() throws Exception {
         String actual = Main.CheckDetails("Georgi");
-        Assert.assertEquals("Georgi", actual);
+        myAssert.assertString(actual,"Georgi");
     }
 }
